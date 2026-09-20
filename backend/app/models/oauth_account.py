@@ -36,7 +36,7 @@ class OAuthAccount(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     user_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True
     )
-    provider: Mapped[MusicProvider] = mapped_column(Enum(MusicProvider), nullable=False)
+    provider: Mapped[MusicProvider] = mapped_column(Enum(MusicProvider, values_callable=lambda enum_cls: [e.value for e in enum_cls]), nullable=False)
     provider_user_id: Mapped[str] = mapped_column(String(255), nullable=False)
 
     encrypted_access_token: Mapped[str] = mapped_column(Text, nullable=False)

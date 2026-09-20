@@ -1,0 +1,121 @@
+.rail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--rail-width);
+  background: var(--ink-900);
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+  z-index: 10;
+}
+
+.rail-mark {
+  writing-mode: vertical-rl;
+  margin-bottom: 2.5rem;
+  color: var(--paper-dim);
+}
+
+.rail-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.rail-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  width: 60px;
+  padding: 0.65rem 0;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--paper-dim);
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.rail-link:hover {
+  color: var(--paper);
+  background: var(--ink-800);
+}
+
+.rail-link-active {
+  color: var(--ink-950);
+  background: var(--amber-500);
+}
+
+.rail-link-active .rail-glyph {
+  color: var(--ink-950);
+}
+
+.rail-glyph {
+  font-size: 0.68rem;
+  color: var(--amber-500);
+}
+
+.rail-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.rail-footer {
+  margin-top: auto;
+}
+
+.rail-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: var(--ink-800);
+  color: var(--amber-300);
+  font-family: var(--font-display);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.rail-avatar:hover {
+  border-color: var(--amber-500);
+}
+
+.app-shell {
+  margin-left: var(--rail-width);
+  min-height: 100vh;
+  padding: 3rem 0 5rem;
+}
+
+@media (max-width: 720px) {
+  .rail {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 64px;
+    flex-direction: row;
+    padding: 0 1rem;
+    border-right: none;
+    border-top: 1px solid var(--line);
+  }
+  .rail-mark {
+    display: none;
+  }
+  .rail-links {
+    flex-direction: row;
+    flex: 1;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .rail-footer {
+    margin-top: 0;
+  }
+  .app-shell {
+    margin-left: 0;
+    padding-bottom: 6rem;
+  }
+}

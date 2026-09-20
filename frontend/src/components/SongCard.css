@@ -1,0 +1,113 @@
+.song-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.1rem 1.4rem;
+}
+
+.song-card-rank {
+  font-size: 1.1rem;
+  color: var(--amber-500);
+  width: 2rem;
+  flex-shrink: 0;
+}
+
+.song-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.song-card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.song-card-artist {
+  font-size: 0.85rem;
+  margin-bottom: 0.65rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.song-card-meter {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.song-card-meter-track {
+  flex: 1;
+  max-width: 160px;
+  height: 5px;
+  background: var(--ink-700);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.song-card-meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal-500), var(--amber-500));
+  border-radius: 3px;
+}
+
+.song-card-meter-label {
+  font-size: 0.72rem;
+  color: var(--paper-dim);
+}
+
+.song-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.song-card-why {
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.song-card-feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.song-card-feedback-btn {
+  width: 26px;
+  height: 22px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--ink-800);
+  color: var(--paper-dim);
+  font-size: 0.7rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.song-card-feedback-btn:hover {
+  border-color: var(--line-strong);
+}
+
+.song-card-feedback-active-like {
+  background: rgba(143, 228, 212, 0.15);
+  border-color: var(--teal-500);
+  color: var(--teal-300);
+}
+
+.song-card-feedback-active-dislike {
+  background: rgba(224, 100, 95, 0.15);
+  border-color: var(--red-500);
+  color: var(--red-300);
+}
+
+@media (max-width: 560px) {
+  .song-card {
+    flex-wrap: wrap;
+  }
+}

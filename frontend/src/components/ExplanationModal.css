@@ -1,0 +1,44 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 11, 16, 0.7);
+  backdrop-filter: blur(3px);
+  display: grid;
+  place-items: center;
+  z-index: 100;
+  padding: 1.5rem;
+}
+
+.modal {
+  width: 100%;
+  max-width: 440px;
+  padding: 1.75rem;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.modal h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.modal-artist {
+  margin-bottom: 1.1rem;
+}
+
+.modal-explanation {
+  color: var(--paper);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.modal-confidence {
+  font-size: 0.78rem;
+  color: var(--amber-300);
+}

@@ -1,0 +1,199 @@
+/*
+  Design direction: an analog audio-equipment console, not a generic SaaS dashboard.
+  Deep ink-blue (never pure black) console body, warm VU-meter amber as the primary
+  signal color, a cooler oscilloscope teal as the secondary trace. Fraunces gives
+  headlines the weight of a hi-fi nameplate; IBM Plex Mono renders every piece of
+  data (confidence scores, track counts, timestamps) like a channel-strip readout.
+  Signature element: a waveform / level-meter motif used for loading states,
+  section dividers, and the "why recommended" indicator on song cards.
+*/
+
+:root {
+  /* --- Color: analog console palette --- */
+  --ink-950: #12141c;
+  --ink-900: #1a1e29;
+  --ink-800: #242a38;
+  --ink-700: #313848;
+  --ink-600: #454e63;
+  --line: rgba(232, 227, 214, 0.09);
+  --line-strong: rgba(232, 227, 214, 0.16);
+
+  --paper: #f3efe4;
+  --paper-dim: #c9c4b5;
+
+  --amber-300: #f4c877;
+  --amber-500: #e8a33d;
+  --amber-600: #c9822a;
+
+  --teal-300: #8fe4d4;
+  --teal-500: #4fb8a4;
+
+  --red-500: #e0645f;
+  --red-300: #f0a29e;
+
+  /* --- Type --- */
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+  /* --- Layout --- */
+  --rail-width: 84px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.24), 0 8px 24px rgba(0, 0, 0, 0.28);
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--ink-950);
+  color: var(--paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-image: radial-gradient(circle at 15% 0%, rgba(232, 163, 61, 0.06), transparent 45%),
+    radial-gradient(circle at 85% 100%, rgba(79, 184, 164, 0.05), transparent 40%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+  line-height: 1.55;
+  color: var(--paper-dim);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+/* Visible keyboard focus everywhere -- never suppressed. */
+:focus-visible {
+  outline: 2px solid var(--amber-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+::selection {
+  background: var(--amber-500);
+  color: var(--ink-950);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.01em;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber-500);
+}
+
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.92rem;
+  border-radius: var(--radius-md);
+  padding: 0.7rem 1.25rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--amber-500);
+  color: var(--ink-950);
+}
+
+.btn-primary:hover {
+  background: var(--amber-300);
+}
+
+.btn-primary:disabled {
+  background: var(--ink-700);
+  color: var(--paper-dim);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--line-strong);
+  color: var(--paper);
+}
+
+.btn-secondary:hover {
+  border-color: var(--amber-500);
+  color: var(--amber-300);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--paper-dim);
+  padding: 0.5rem 0.75rem;
+}
+
+.btn-ghost:hover {
+  color: var(--paper);
+}
+
+.card {
+  background: linear-gradient(180deg, var(--ink-800), var(--ink-900));
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
