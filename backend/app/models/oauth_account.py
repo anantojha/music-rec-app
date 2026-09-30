@@ -15,7 +15,7 @@ class MusicProvider(str, enum.Enum):
     """The abstraction point that lets us add Apple Music later without touching
     the recommendation engine or DB schema — see services/music_provider.py."""
 
-    SPOTIFY = "spotify"
+    SPOTIFY = "spotify"  # primary vendor
     APPLE_MUSIC = "apple_music"
 
 
